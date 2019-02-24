@@ -11,13 +11,13 @@
 
 #### O que é necessário para rodar o terraform no cloud provider Azure:
 
-    Para a execução do terraform para a criação de um cluster de kubernetes como serviço na Azure, é necessário exportar as seguintes chaves: client_id e secret_id
+  Para a execução do terraform para a criação de um cluster de kubernetes como serviço na Azure, é necessário exportar as seguintes chaves: client_id e secret_id
 
-    Para conseguir os dados das variáveis client_id e client_secret:
+  Para conseguir os dados das variáveis client_id e client_secret:
 
-    Você pode seguir essa documentação da Azure: [Criar Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
+  Você pode seguir essa documentação da Azure: [Criar Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
 
-    ou, fazê-lo via az cli. Para isso, é necessário ter o az cli instalado:
+  ou, fazê-lo via az cli. Para isso, é necessário ter o az cli instalado:
 
 [Instalação do az cli aqui](https://docs.microsoft.com/pt-br/cli/azure/install-azure-cli?view=azure-cli-latest)
 
