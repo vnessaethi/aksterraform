@@ -1,7 +1,7 @@
-## Criando um AKS (Azure Kubernetes Services) com log analytics usando terraform
+## Criando um AKS (Azure Kubernetes Services) usando terraform
 
 #### Exemplificando o manifesto terraform:
-1. aks.tf: Contém todos os recursos de criação do cluster com log analytics da Azure.
+1. aks.tf: Contém todos os recursos de criação do cluster na Azure.
 
 2. main.tf: Contém o provider da cloud azure e também o backend do terraform para guardar o tfstate em um blob storage da Azure.
 

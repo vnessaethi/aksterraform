@@ -17,13 +17,15 @@ region="eastus"
 storagename="sttfstate"
 sku="Standard_GRS"
 
-if (az group exists -n $resourceGroup); then
+RGACCOUNT=$(az group exists -n $resourceGroup)
+if [ $RGACCOUNT == "true" ]; then
     printf "\\nO resource group especificado já existe\\n";
 else
     az group create --name "$resourceGroup" --location "$region"
 fi
 
-if (az storage account list -g "$resourceGroup" | jq -r '.[].name'); then
+STACCOUNT=$(az storage account list -g "$resourceGroup" | jq -r '.[].name')
+if [ $STACCOUNT == $storagename ]; then
     printf "\\nO storage account especificado já existe\\n";
 else
     az storage account create --location "$region" --name "$storagename" --resource-group "$resourceGroup" --sku "$sku"

@@ -8,32 +8,12 @@ resource "azurerm_resource_group" "rgk8scluster" {
     }
 }
 
-resource "azurerm_log_analytics_workspace" "k8sloganalytics" {
-    name                = "${var.log_analytics_workspace_name}"
-    location            = "${var.log_analytics_workspace_location}"
-    resource_group_name = "${azurerm_resource_group.rgk8scluster.name}"
-    sku                 = "${var.log_analytics_workspace_sku}"
-}
-
-resource "azurerm_log_analytics_solution" "k8slogsolution" {
-    solution_name         = "ContainerInsights"
-    location              = "${azurerm_log_analytics_workspace.k8sloganalytics.location}"
-    resource_group_name   = "${azurerm_resource_group.rgk8scluster.name}"
-    workspace_resource_id = "${azurerm_log_analytics_workspace.k8sloganalytics.id}"
-    workspace_name        = "${azurerm_log_analytics_workspace.k8sloganalytics.name}"
-
-    plan {
-        publisher = "Microsoft"
-        product   = "OMSGallery/ContainerInsights"
-    }
-}
-
 resource "azurerm_kubernetes_cluster" "k8sclusters" {
     name                = "${var.cluster_name}"
     location            = "${azurerm_resource_group.rgk8scluster.location}"
     resource_group_name = "${azurerm_resource_group.rgk8scluster.name}"
     dns_prefix          = "${var.dns_prefix}"
-    kubernetes_version  = "1.12.6"
+    kubernetes_version  = "1.12.5"
 
     linux_profile {
         admin_username = "${var.username}"
