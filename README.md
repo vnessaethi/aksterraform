@@ -15,9 +15,7 @@
 
   Para conseguir os dados das variáveis client_id e client_secret:
 
-  Você pode seguir essa documentação da Azure: [Criar Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
-
-  ou, fazê-lo via az cli. Para isso, é necessário ter o az cli instalado:
+  Você pode seguir essa documentação da Azure: [Criar Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) ou, fazê-lo via az cli. Para isso, é necessário ter o az cli instalado:
 
 [Instalação do az cli aqui](https://docs.microsoft.com/pt-br/cli/azure/install-azure-cli?view=azure-cli-latest)
 
