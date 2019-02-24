@@ -1,39 +1,44 @@
-## Criando um AKS (Azure Kubernetes Services) usando terraform
+## Creating an AKS (Azure Kubernetes Services) using terraform
 
-#### Exemplificando o manifesto terraform:
-1. aks.tf: Contém todos os recursos de criação do cluster na Azure.
+#### Exemplifying the terraform manifesto:
+1. aks.tf: Contains all clustering features in Azure.
 
-2. main.tf: Contém o provider da cloud azure e também o backend do terraform para guardar o tfstate em um blob storage da Azure.
+2. main.tf: Contains the cloud azure provider and also the terraform backend to store tfstate in an Azure blob storage.
 
-3. variables.tf: Contém todas as variavéis que serão usadas no aks.tf.
+3. variables.tf: Contains all the variables that will be used in aks.tf file.
 
-4. setup.sh: Shell script para facilitar o setup do cluster.
+4. setup.sh: Shell script to make cluster setup easier.
 
-#### O que é necessário para rodar o terraform no cloud provider Azure:
+#### What is required to run terraform on the Azure cloud provider:
 
-  Para a execução do terraform para a criação de um cluster de kubernetes como serviço na Azure, é necessário exportar as seguintes chaves: client_id e secret_id
+  For the implementation of terraform for the creation of a cluster of kubernetes as a service in Azure, it is necessary to export the following keys: client_id and secret_id
 
-  Para conseguir os dados das variáveis client_id e client_secret:
+  To get the client_id and client_secret variables data:
 
-  Você pode seguir essa documentação da Azure: [Criar Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) ou, fazê-lo via az cli. Para isso, é necessário ter o az cli instalado:
+  You can follow this Azure documentation: [Create Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) I saw it, cli. To do this, it is necessary to have the blue installed:
 
-[Instalação do az cli aqui](https://docs.microsoft.com/pt-br/cli/azure/install-azure-cli?view=azure-cli-latest)
+[Installation of the plugin here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-Criação do Service Principal:
+Main Service Creation:
+
 ```shell
-$ az ad sp create-for-rbac --name ServicePrincipalName
+    $ az ad sp create-for-rbac --name ServicePrincipalName
 ```
-No output do comando anterior, haverá todas as informações que você precisará, sendo que appId é o client_id e o password é o client_secret.
 
-1. Export client_id e client_secret:
-    ```shell
-    $ export client_id=xxxxxxx
-    $ export client_secret=xxxxxx
-    ```
-2. Execução do script que irá gerar o aks na Azure:
-    ```shell
-    $ chmod +x setup.sh
-    $ ./setup.sh
-    ```
-3. Aguardar a finalização da criação do cluster.
+In the output of the previous command, there will be all the information you need, where appId is the client_id and the password is the client_secret.
 
+1. Export client_id and client_secret:
+
+```shell
+    $ export client_id = xxxxxxx
+    $ export client_secret = xxxxxx
+```
+
+2. Running the script that will generate the aks in Azure:
+
+```shell
+    $ chmod + x setup.sh
+    $ ./setup.sh
+```
+
+3. Wait for the creation of the cluster to finish.
